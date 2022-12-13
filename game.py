@@ -39,9 +39,9 @@ class Marksman(Character):
 
 while True:
 
-    warrior = Warrior("Warrior", 60, 30, 20)
-    tank = Tank("Tank", 100, 20, 5)
-    mage = Mage("Mage", 40, 30, 10)
+    warrior = Warrior("Warrior", 100, 30, 20)
+    tank = Tank("Tank", 150, 20, 5)
+    mage = Mage("Mage", 70, 30, 10)
     pyro = Pyro("Pyro", 40, 10, 30)
     marksman = Marksman("Marksman", 50, 15, 15)
 
@@ -116,6 +116,13 @@ while True:
                         break
                     except:
                         player1_move = input("Move not available. Here are your options: Attack, slash ")
+                case "shoot":
+                    try:
+                        player1.shoot(player2)
+                        print(f"\n Nice shot! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")
                 case other:
                     player1_move = input("Move not recognised. Here are your options: Attack, slash ")
 
@@ -144,6 +151,13 @@ while True:
                         break
                     except:
                         player2_move = input("Move not available. Here are your options: Attack, slash ")
+                case "shoot":
+                    try:
+                        player2.shoot(player1)
+                        print(f"\n Nice shot! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")
                 case other:
                     player2_move = input("Move not recognised. Here are your options: Attack, slash ")
 
