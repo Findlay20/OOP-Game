@@ -10,13 +10,29 @@ class Character:
 
     def attack(self, opponent):
         opponent.HP = opponent.HP - self.AP
-
-player = input("")
-
-warrior = Character("Warrior", 60, 30, 20)
-tank = Character("Tank", 100, 40, 10)
-mage = Character("Mage", 40, 30, 20)
-pyro = Character("Pyro", 40, 10, 60)
+        self.HP = self.HP - opponent.DP
 
 
-print(player1)
+while True:
+
+    warrior = Character("Warrior", 60, 30, 40)
+    tank = Character("Tank", 100, 20, 10)
+    mage = Character("Mage", 40, 30, 20)
+    pyro = Character("Pyro", 40, 10, 60)
+
+    player1choice = input("Choose your character: Warrior | Tank | Mage | Pyro ")
+ 
+    player1 = warrior
+
+
+
+    print(player1)
+    print(warrior)
+    print(tank)
+    print(mage)
+    print(pyro)
+
+    warrior.attack(tank)
+
+    print(warrior)
+    print(tank)
