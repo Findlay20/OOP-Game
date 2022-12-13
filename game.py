@@ -57,6 +57,17 @@ while True:
     print("Player 1 has choosen", player1.name)
     print("Player 2 has choosen", player2.name)
 
+
+    while player1.HP & player2.HP > 0:
+        player1_move = input("It's Player 1's turn. Which move would you like to make? ( Attack | other options ) \n")
+
+        match player1_move.lower():
+            case "attack":
+                player1.attack(player2)
+                print("Nice attack! \n ")
+    
+   
+
     # print(warrior)
     # print(tank)
     # print(mage)
