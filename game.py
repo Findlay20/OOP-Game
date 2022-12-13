@@ -122,7 +122,7 @@ while True:
         player2_move = input("\n It's Player 2's turn. Which move would you like to make? ( Attack | other options ) \n")
 
         while True:
-            match player1_move.lower():
+            match player2_move.lower():
                 case "attack":
                     player2.attack(player1)
                     print(f"\n Nice attack! \n")
@@ -130,9 +130,12 @@ while True:
                 case "slash":
                     player2.slash(player1)
                     break
-            player1_move = input("Move not available. Here are your options: Attack, slash ")
+            player2_move = input("Move not available. Here are your options: Attack, slash ")
 
         print(f" Player 1 is now on {player1.HP if player1.HP > 0 else 0} health. \n Player 2 is now on {player2.HP  if player2.HP > 0 else 0} health")
+
+
+
 
     if player1.HP > player2.HP:
         print("Congratulations, Player 1 has won the game!")
