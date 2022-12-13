@@ -4,6 +4,7 @@ class Character:
         self.HP = hp
         self.DP = dp
         self.AP = ap
+        self.stamina = 100
 
     def __str__(self):
         return f"{self.name} has {self.HP} health, {self.DP} defence and {self.AP} attack power"
@@ -13,16 +14,37 @@ class Character:
         self.HP = self.HP - opponent.DP
 
 
+class Warrior(Character):        
+    def sword(self, opponent):
+        opponent.HP = opponent.HP - 30
+
+class Tank(Character):        
+    def sword(self, opponent):
+        opponent.HP = opponent.HP - 30
+
+class Mage(Character):        
+    def sword(self, opponent):
+        opponent.HP = opponent.HP - 30
+
+class Pyro(Character):        
+    def flamethrower(self, opponent):
+        opponent.HP = opponent.HP - 30
+
+class Marksman(Character):
+    def shoot(self, opponent):
+        opponent.HP = opponent.HP - 40
+
 while True:
 
-    warrior = Character("Warrior", 60, 30, 20)
-    tank = Character("Tank", 100, 20, 5)
-    mage = Character("Mage", 40, 30, 10)
-    pyro = Character("Pyro", 40, 10, 30)
+    warrior = Warrior("Warrior", 60, 30, 20)
+    tank = Tank("Tank", 100, 20, 5)
+    mage = Mage("Mage", 40, 30, 10)
+    pyro = Pyro("Pyro", 40, 10, 30)
+    marksman = Marksman("Marksman", 50, 15, 15)
 
-    print(f"\nWelcome to Terminal Brawl! There are 4 classes to choose from with varying stats: \n\n {warrior} \n {tank} \n {mage} \n {pyro} \n")
+    print(f"\nWelcome to Terminal Brawl! There are 4 classes to choose from with varying stats: \n\n {warrior} \n {tank} \n {mage} \n {pyro} \n {marksman} \n")
 
-    player1choice = input("\nPlayer 1! Choose your character: Warrior | Tank | Mage | Pyro \n")
+    player1choice = input("\nPlayer 1! Choose your character: Warrior | Tank | Mage | Pyro | Marksman \n")
  
     match player1choice.lower():
         case "warrior":
@@ -33,12 +55,14 @@ while True:
             player1 = mage
         case "pyro":
             player1 = pyro
+        case "marksman":
+            player1 = marksman
         case other:
             print("Unkown choice, exiting...")
             break
 
 
-    player2choice = input("\nPlayer 2! Choose your character: Warrior | Tank | Mage | Pyro \n")
+    player2choice = input("\nPlayer 2! Choose your character: Warrior | Tank | Mage | Pyro | Marksman \n")
  
     match player2choice.lower():
         case "warrior":
@@ -49,6 +73,8 @@ while True:
             player2 = mage
         case "pyro":
             player2 = pyro
+        case "marksman":
+            player2 = marksman
         case other:
             print("Unkown choice, exiting...")
             break
