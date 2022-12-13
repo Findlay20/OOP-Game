@@ -35,6 +35,8 @@ class Pyro(Character):
 
 class Marksman(Character):
     def shoot(self, opponent):
+        opponent.HP = opponent.HP - 20
+    def supershot(self, opponent):
         opponent.HP = opponent.HP - 40
 
 while True:
@@ -123,6 +125,13 @@ while True:
                         break
                     except:
                         player1_move = input("Move not available. Here are your options: Attack, slash ")
+                case "supershot":
+                    try:
+                        player1.supershot(player2)
+                        print(f"\n Wow! That was a HUUUGE shot! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")        
                 case other:
                     player1_move = input("Move not recognised. Here are your options: Attack, slash ")
 
@@ -158,6 +167,13 @@ while True:
                         break
                     except:
                         player1_move = input("Move not available. Here are your options: Attack, slash ")
+                case "supershot":
+                    try:
+                        player2.supershot(player1)
+                        print(f"\n Wow! That was a HUUUGE shot! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")        
                 case other:
                     player2_move = input("Move not recognised. Here are your options: Attack, slash ")
 
