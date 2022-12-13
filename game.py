@@ -15,10 +15,10 @@ class Character:
 
 while True:
 
-    warrior = Character("Warrior", 60, 30, 40)
-    tank = Character("Tank", 100, 20, 10)
-    mage = Character("Mage", 40, 30, 20)
-    pyro = Character("Pyro", 40, 10, 60)
+    warrior = Character("Warrior", 60, 30, 20)
+    tank = Character("Tank", 100, 20, 5)
+    mage = Character("Mage", 40, 30, 10)
+    pyro = Character("Pyro", 40, 10, 30)
 
     print(f"Welcome to Terminal Brawl! There are 5 classes to choose from with varying stats: \n {warrior} \n {tank} \n {mage} \n {pyro}")
 
@@ -64,7 +64,7 @@ while True:
         match player1_move.lower():
             case "attack":
                 player1.attack(player2)
-                print(f"Nice attack! \n Player 1 is now on {player1.HP} health. \n Player 2 is now on {player2.HP} health")
+                print(f"Nice attack! \n Player 1 is now on {player1.HP if player1.HP > 0 else 0} health. \n Player 2 is now on {player2.HP  if player2.HP > 0 else 0} health")
             
         if player1.HP <= 0 or player2.HP <= 0:
             break
@@ -74,7 +74,15 @@ while True:
         match player2_move.lower():
             case "attack":
                 player2.attack(player1)
-                print(f"Nice attack! \n Player 1 is now on {player1.HP} health. \n Player 2 is now on {player2.HP} health")
+                print(f"Nice attack! \n Player 1 is now on {player1.HP if player1.HP > 0 else 0} health. \n Player 2 is now on {player2.HP if player2.HP > 0 else 0} health")
+
+
+    if player1.HP > player2.HP:
+        print("Congratulations, Player 1 has won the game!")
+    elif player1.HP == player2.HP:
+        print("Congratulations to both players. The game has finished in a draw!")
+    else:
+        print("Congratulations, Player 2 has won the game!")
 
     exit = input("Thanks for playing! Enter anything to play again or exit to stop. \n")
 
