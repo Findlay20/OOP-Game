@@ -24,7 +24,9 @@ while True:
  
     player1 = warrior
 
-
+    player2choice = input("Choose your character: Warrior | Tank | Mage | Pyro ")
+ 
+    player2 = warrior
 
     print(player1)
     print(warrior)
