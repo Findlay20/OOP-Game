@@ -15,8 +15,11 @@ class Character:
 
 
 class Warrior(Character):        
-    def sword(self, opponent):
-        opponent.HP = opponent.HP - 30
+    def slash(self, opponent):
+        opponent.HP = opponent.HP - 35
+    
+    def strike(self, opponent):
+        opponent.HP = opponent.HP - 20 
 
 class Tank(Character):        
     def sword(self, opponent):
@@ -46,38 +49,46 @@ while True:
 
     player1choice = input("\nPlayer 1! Choose your character: Warrior | Tank | Mage | Pyro | Marksman \n")
  
-    match player1choice.lower():
-        case "warrior":
-            player1 = warrior
-        case "tank":
-            player1 = tank
-        case "mage":
-            player1 = mage
-        case "pyro":
-            player1 = pyro
-        case "marksman":
-            player1 = marksman
-        case other:
-            print("Unkown choice, exiting...")
-            break
+    while True:
+        match player1choice.lower():
+                case "warrior":
+                    player1 = warrior
+                    break
+                case "tank":
+                    player1 = tank
+                    break
+                case "mage":
+                    player1 = mage
+                    break
+                case "pyro":
+                    player1 = pyro
+                    break
+                case "marksman":
+                    player1 = marksman
+                    break
+        player1choice = input("Unkown input. Player 1! Choose your character from the following options: Warrior | Tank | Mage | Pyro | Marksman \n")
 
 
     player2choice = input("\nPlayer 2! Choose your character: Warrior | Tank | Mage | Pyro | Marksman \n")
- 
-    match player2choice.lower():
-        case "warrior":
-            player2 = warrior
-        case "tank":
-            player2 = tank
-        case "mage":
-            player2 = mage
-        case "pyro":
-            player2 = pyro
-        case "marksman":
-            player2 = marksman
-        case other:
-            print("Unkown choice, exiting...")
-            break
+    
+    while True:
+        match player2choice.lower():
+            case "warrior":
+                player2 = warrior
+                break
+            case "tank":
+                player2 = tank
+                break
+            case "mage":
+                player2 = mage
+                break
+            case "pyro":
+                player2 = pyro
+                break
+            case "marksman":
+                player2 = marksman
+                break
+        player2choice = input("Unkown input. Player 2! Choose your character from the following options: Warrior | Tank | Mage | Pyro | Marksman \n")
 
     print("\n----------------------------------------------------------")
     print("\n Player 1 has choosen", player1.name)
@@ -86,12 +97,22 @@ while True:
 
     while player1.HP > 0 and player2.HP > 0:
         print("\n----------------------------------------------------------")
+        
         player1_move = input("\nIt's Player 1's turn. Which move would you like to make? ( Attack | other options ) \n")
 
-        match player1_move.lower():
-            case "attack":
-                player1.attack(player2)
-                print(f"\n Nice attack! \n")
+        while True:
+            match player1_move.lower():
+                case "attack":
+                    player1.attack(player2)
+                    print(f"\n Nice attack! \n")
+                    break
+                case "slash":
+                    player1.slash(player2)
+                    break
+            player1_move = input("Move not available. Here are your options: Attack, slash ")
+
+
+            
 
         print(f" Player 1 is now on {player1.HP if player1.HP > 0 else 0} health. \n Player 2 is now on {player2.HP  if player2.HP > 0 else 0} health")
 
@@ -100,10 +121,16 @@ while True:
         
         player2_move = input("\n It's Player 2's turn. Which move would you like to make? ( Attack | other options ) \n")
 
-        match player2_move.lower():
-            case "attack":
-                player2.attack(player1)
-                print(f"\n Nice attack!")
+        while True:
+            match player1_move.lower():
+                case "attack":
+                    player2.attack(player1)
+                    print(f"\n Nice attack! \n")
+                    break
+                case "slash":
+                    player2.slash(player1)
+                    break
+            player1_move = input("Move not available. Here are your options: Attack, slash ")
 
         print(f" Player 1 is now on {player1.HP if player1.HP > 0 else 0} health. \n Player 2 is now on {player2.HP  if player2.HP > 0 else 0} health")
 
