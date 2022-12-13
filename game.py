@@ -17,21 +17,32 @@ class Character:
 class Warrior(Character):        
     def slash(self, opponent):
         opponent.HP = opponent.HP - 35
-    
+        self.HP = self.HP - opponent.DP
+
     def strike(self, opponent):
-        opponent.HP = opponent.HP - 20 
+        opponent.HP = opponent.HP - 20
+        self.HP = self.HP - opponent.DP
+
 
 class Tank(Character):        
-    def sword(self, opponent):
-        opponent.HP = opponent.HP - 30
+    def smash(self, opponent):
+        opponent.HP = opponent.HP - 15
+        self.HP = self.HP - opponent.DP
+    def supersmash(self, opponent):
+        opponent.HP = opponent.HP - 35
+        self.HP = self.HP - opponent.DP
 
 class Mage(Character):        
-    def sword(self, opponent):
-        opponent.HP = opponent.HP - 30
+    def spell(self, opponent):
+        opponent.HP = opponent.HP - 15
+    def curse(self, opponent):
+        opponent.HP = opponent.HP - 40
 
 class Pyro(Character):        
+    def burn (self, opponent):
+        opponent.HP = opponent.HP - 20
     def flamethrower(self, opponent):
-        opponent.HP = opponent.HP - 30
+        opponent.HP = opponent.HP - 40
 
 class Marksman(Character):
     def shoot(self, opponent):
@@ -41,11 +52,11 @@ class Marksman(Character):
 
 while True:
 
-    warrior = Warrior("Warrior", 100, 30, 20)
-    tank = Tank("Tank", 150, 20, 5)
-    mage = Mage("Mage", 70, 30, 10)
+    warrior = Warrior("Warrior", 100, 10, 20)
+    tank = Tank("Tank", 150, 15, 5)
+    mage = Mage("Mage", 70, 5, 10)
     pyro = Pyro("Pyro", 40, 10, 30)
-    marksman = Marksman("Marksman", 50, 15, 15)
+    marksman = Marksman("Marksman", 50, 5, 15)
 
     print(f"\nWelcome to Terminal Brawl! There are 4 classes to choose from with varying stats: \n\n {warrior} \n {tank} \n {mage} \n {pyro} \n {marksman} \n")
 
@@ -118,6 +129,55 @@ while True:
                         break
                     except:
                         player1_move = input("Move not available. Here are your options: Attack, slash ")
+                case "strike":
+                    try:
+                        player1.strike(player2)
+                        print(f"\n Nice strike! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")
+                case "smash":
+                    try:
+                        player1.smash(player2)
+                        print(f"\n Nice smash! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")
+                case "supersmash":
+                    try:
+                        player1.supersmash(player2)
+                        print(f"\n Player 2 was crushed! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")
+                case "spell":
+                    try:
+                        player1.spell(player2)
+                        print(f"\n Nice spell! \n")
+                        break
+                    except:
+                        player2_move = input("Move not available. Here are your options: Attack, slash ")
+                case "curse":
+                    try:
+                        player1.curse(player2)
+                        print(f"\n Nice curse! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")
+                case "burn":
+                    try:
+                        player1.burn(player2)
+                        print(f"\n Nice burn! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")
+                case "flamethrower":
+                    try:
+                        player1.flamethrower(player2)
+                        print(f"\n Nice flamethrower! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")
                 case "shoot":
                     try:
                         player1.shoot(player2)
@@ -157,6 +217,55 @@ while True:
                 case "slash":
                     try:
                         player2.slash(player1)
+                        break
+                    except:
+                        player2_move = input("Move not available. Here are your options: Attack, slash ")
+                case "strike":
+                    try:
+                        player2.strike(player1)
+                        print(f"\n Nice strike! \n")
+                        break
+                    except:
+                        player2_move = input("Move not available. Here are your options: Attack, slash ")
+                case "smash":
+                    try:
+                        player2.smash(player1)
+                        print(f"\n Nice smash! \n")
+                        break
+                    except:
+                        player2_move = input("Move not available. Here are your options: Attack, slash ")
+                case "supersmash":
+                    try:
+                        player2.supersmash(player1)
+                        print(f"\n Player 1 was crushed! \n")
+                        break
+                    except:
+                        player2_move = input("Move not available. Here are your options: Attack, slash ")
+                case "spell":
+                    try:
+                        player2.spell(player1)
+                        print(f"\n Nice spell! \n")
+                        break
+                    except:
+                        player2_move = input("Move not available. Here are your options: Attack, slash ")
+                case "curse":
+                    try:
+                        player2.curse(player1)
+                        print(f"\n Nice curse! \n")
+                        break
+                    except:
+                        player2_move = input("Move not available. Here are your options: Attack, slash ")
+                case "burn":
+                    try:
+                        player2.burn(player1)
+                        print(f"\n Nice burn! \n")
+                        break
+                    except:
+                        player2_move = input("Move not available. Here are your options: Attack, slash ")
+                case "flamethrower":
+                    try:
+                        player2.flamethrower(player1)
+                        print(f"\n Nice flamethrower! \n")
                         break
                     except:
                         player2_move = input("Move not available. Here are your options: Attack, slash ")
