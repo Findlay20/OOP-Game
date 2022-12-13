@@ -64,9 +64,14 @@ while True:
         match player1_move.lower():
             case "attack":
                 player1.attack(player2)
-                print("Nice attack! \n ")
+                print(f"Nice attack! \n Player 1 is now on {player1.HP} health. \n Player 2 is now on {player2.HP} health")
     
-   
+        player2_move = input("It's Player 2's turn. Which move would you like to make? ( Attack | other options ) \n")
+
+        match player2_move.lower():
+            case "attack":
+                player2.attack(player1)
+                print(f"Nice attack! \n Player 1 is now on {player1.HP} health. \n Player 2 is now on {player2.HP} health")
 
     # print(warrior)
     # print(tank)
