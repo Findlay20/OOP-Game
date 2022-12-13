@@ -20,7 +20,7 @@ while True:
     mage = Character("Mage", 40, 30, 10)
     pyro = Character("Pyro", 40, 10, 30)
 
-    print(f"\nWelcome to Terminal Brawl! There are 5 classes to choose from with varying stats: \n\n {warrior} \n {tank} \n {mage} \n {pyro} \n")
+    print(f"\nWelcome to Terminal Brawl! There are 4 classes to choose from with varying stats: \n\n {warrior} \n {tank} \n {mage} \n {pyro} \n")
 
     player1choice = input("\nPlayer 1! Choose your character: Warrior | Tank | Mage | Pyro \n")
  
@@ -53,7 +53,7 @@ while True:
             print("Unkown choice, exiting...")
             break
 
-
+    print("\n----------------------------------------------------------")
     print("\n Player 1 has choosen", player1.name)
     print("\n Player 2 has choosen", player2.name)
 
