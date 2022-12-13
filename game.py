@@ -103,13 +103,21 @@ while True:
         while True:
             match player1_move.lower():
                 case "attack":
-                    player1.attack(player2)
-                    print(f"\n Nice attack! \n")
-                    break
+                    try:
+                        player1.attack(player2)
+                        print(f"\n Nice attack! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")
                 case "slash":
-                    player1.slash(player2)
-                    break
-            player1_move = input("Move not available. Here are your options: Attack, slash ")
+                    try:
+                        player1.slash(player2)
+                        print(f"\n Nice slash! \n")
+                        break
+                    except:
+                        player1_move = input("Move not available. Here are your options: Attack, slash ")
+                case other:
+                    player1_move = input("Move not recognised. Here are your options: Attack, slash ")
 
 
             
@@ -124,13 +132,20 @@ while True:
         while True:
             match player2_move.lower():
                 case "attack":
-                    player2.attack(player1)
-                    print(f"\n Nice attack! \n")
-                    break
+                    try:
+                        player2.attack(player1)
+                        print(f"\n Nice attack! \n")
+                        break
+                    except:
+                        player2_move = input("Move not available. Here are your options: Attack, slash ")
                 case "slash":
-                    player2.slash(player1)
-                    break
-            player2_move = input("Move not available. Here are your options: Attack, slash ")
+                    try:
+                        player2.slash(player1)
+                        break
+                    except:
+                        player2_move = input("Move not available. Here are your options: Attack, slash ")
+                case other:
+                    player2_move = input("Move not recognised. Here are your options: Attack, slash ")
 
         print(f" Player 1 is now on {player1.HP if player1.HP > 0 else 0} health. \n Player 2 is now on {player2.HP  if player2.HP > 0 else 0} health")
 
