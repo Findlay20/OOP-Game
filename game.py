@@ -20,21 +20,49 @@ while True:
     mage = Character("Mage", 40, 30, 20)
     pyro = Character("Pyro", 40, 10, 60)
 
-    player1choice = input("Choose your character: Warrior | Tank | Mage | Pyro ")
- 
-    player1 = player1choice
+    print(f"Welcome to Terminal Brawl! There are 5 classes to choose from with varying stats: \n {warrior} \n {tank} \n {mage} \n {pyro}")
 
-    player2choice = input("Choose your character: Warrior | Tank | Mage | Pyro ")
+    player1choice = input("Player 1! Choose your character: Warrior | Tank | Mage | Pyro ")
  
-    player2 = player2choice
+    match player1choice.lower():
+        case "warrior":
+            player1 = warrior
+        case "tank":
+            player1 = tank
+        case "mage":
+            player1 = mage
+        case "pyro":
+            player1 = pyro
+        case other:
+            print("Unkown choice, exiting...")
+            break
+
+
+    player2choice = input("Player 2! Choose your character: Warrior | Tank | Mage | Pyro ")
+ 
+    match player2choice.lower():
+        case "warrior":
+            player2 = warrior
+        case "tank":
+            player2 = tank
+        case "mage":
+            player2 = mage
+        case "pyro":
+            player2 = pyro
+        case other:
+            print("Unkown choice, exiting...")
+            break
+
 
     print(player1)
-    print(warrior)
-    print(tank)
-    print(mage)
-    print(pyro)
+    print(player2)
 
-    warrior.attack(tank)
+    # print(warrior)
+    # print(tank)
+    # print(mage)
+    # print(pyro)
 
-    print(warrior)
-    print(tank)
+    # warrior.attack(tank)
+
+    # print(warrior)
+    # print(tank)
