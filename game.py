@@ -22,11 +22,11 @@ while True:
 
     player1choice = input("Choose your character: Warrior | Tank | Mage | Pyro ")
  
-    player1 = warrior
+    player1 = player1choice
 
     player2choice = input("Choose your character: Warrior | Tank | Mage | Pyro ")
  
-    player2 = warrior
+    player2 = player2choice
 
     print(player1)
     print(warrior)
